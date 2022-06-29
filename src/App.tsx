@@ -45,7 +45,7 @@ const App = () => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.5,
+        staggerChildren: 0.2,
       },
     },
   };

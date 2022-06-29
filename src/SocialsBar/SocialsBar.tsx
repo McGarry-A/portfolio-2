@@ -21,35 +21,35 @@ const SocialsBar: React.FC<Props> = ({ navIsOpen }) => {
   return (
     <FixedBar>
       <AiOutlineTwitter
-        size="2.3rem"
+        size="3rem"
         className={`cursor-pointer  hover:scale-110 transition duration-150 ${
           navIsOpen
-            ? "text-black hover:text-violet-700"
-            : "text-white hover:text-violet-700"
+            ? "text-black hover:text-violet-900"
+            : "text-white hover:text-violet-900"
         }`}
       />
       <AiFillFacebook
-        size="2.3rem"
+        size="3rem"
         className={`cursor-pointer  hover:scale-110 transition duration-150 ${
           navIsOpen
-            ? "text-black hover:text-violet-700"
-            : "text-white hover:text-violet-700"
+            ? "text-black hover:text-violet-900"
+            : "text-white hover:text-violet-900"
         }`}
       />
       <AiFillLinkedin
-        size="2.3rem"
+        size="3rem"
         className={`cursor-pointer  hover:scale-110 transition duration-150 ${
           navIsOpen
-            ? "text-black hover:text-violet-700"
-            : "text-white hover:text-violet-700"
+            ? "text-black hover:text-violet-900"
+            : "text-white hover:text-violet-900"
         }`}
       />
       <AiFillGithub
-        size="2.3rem"
+        size="3rem"
         className={`cursor-pointer  hover:scale-110 transition duration-150 ${
           navIsOpen
-            ? "text-black hover:text-violet-700"
-            : "text-white hover:text-violet-700"
+            ? "text-black hover:text-violet-900"
+            : "text-white hover:text-violet-900"
         }`}
       />
     </FixedBar>
