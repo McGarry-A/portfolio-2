@@ -11,6 +11,7 @@ import SocialsBar from "./SocialsBar/SocialsBar";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Nav from "./Nav/Nav";
 import Projects from "./Projects/Projects";
+import About from "./About/About";
 
 const ContentWrapper: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -36,6 +37,7 @@ const App = () => {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Hero />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/about-me" element={<About />} />
           </Routes>
         </AnimatePresence>
       </ContentWrapper>
