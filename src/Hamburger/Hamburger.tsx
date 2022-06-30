@@ -28,30 +28,41 @@ const Hamburger: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
   const transition = { ease: "easeInOut", duration: "0.15" };
 
   return (
-    <div
-      className="cursor-pointer z-50"
-      onClick={() => setNavIsOpen(!navIsOpen)}
-    >
-      <motion.span
-        className={`w-[40px] h-[2px] bg-white block my-2 mx-auto transition duration-150`}
-        animate={navIsOpen ? "open1" : "closed"}
-        variants={variants}
-        transition={transition}
-      ></motion.span>
-      <motion.span
-        className={`w-[40px] h-[2px] bg-white block my-2 mx-auto transition duration-150`}
-        animate={navIsOpen ? "open-3" : "closed"}
-        variants={variants}
-        transition={transition}
-      ></motion.span>
-      <motion.span
-        className={`w-[40px] h-[2px] bg-white block my-2 mx-auto transition duration-150`}
-        animate={navIsOpen ? "open2" : "closed"}
-        variants={variants}
-        transition={transition}
-      ></motion.span>
-    </div>
+    <header className="flex justify-end">
+      <motion.div
+        className="cursor-pointer z-50"
+        onClick={() => setNavIsOpen(!navIsOpen)}
+        variants={fadeIn}
+        initial="hide"
+        animate="show"
+      >
+        <motion.span
+          className={`w-[40px] h-[2px] bg-white block my-2 mx-auto transition duration-150`}
+          animate={navIsOpen ? "open1" : "closed"}
+          variants={variants}
+          transition={transition}
+        ></motion.span>
+        <motion.span
+          className={`w-[40px] h-[2px] bg-white block my-2 mx-auto transition duration-150`}
+          animate={navIsOpen ? "open3" : "closed"}
+          variants={variants}
+          transition={transition}
+        ></motion.span>
+        <motion.span
+          className={`w-[40px] h-[2px] bg-white block my-2 mx-auto transition duration-150`}
+          animate={navIsOpen ? "open2" : "closed"}
+          variants={variants}
+          transition={transition}
+        ></motion.span>
+      </motion.div>
+    </header>
   );
 };
 
 export default Hamburger;
+
+// Animation
+const fadeIn = {
+  hide: { opacity: 0, x: 50 },
+  show: { opacity: 1, x: 0, transition: { delay: 2.6 } },
+};
