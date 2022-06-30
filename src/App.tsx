@@ -8,7 +8,7 @@ import { AnimatePresence } from "framer-motion";
 // import Links from "./Links/Links";
 import SocialsBar from "./SocialsBar/SocialsBar";
 
-import { Routes, Route, Outlet, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Nav from "./Nav/Nav";
 import Projects from "./Projects/Projects";
 

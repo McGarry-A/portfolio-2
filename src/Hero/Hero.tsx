@@ -1,12 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  FaReact,
-  FaHtml5,
-  FaCss3Alt,
-  FaSass,
-  FaNodeJs,
-  FaNode,
-} from "react-icons/fa";
+import { FaReact, FaHtml5, FaCss3Alt, FaSass, FaNode } from "react-icons/fa";
 import { DiJavascript1, DiMongodb } from "react-icons/di";
 import { AiOutlineCloudDownload } from "react-icons/ai";
 import {
