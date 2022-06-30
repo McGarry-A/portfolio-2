@@ -36,12 +36,7 @@ const Hero = () => {
         animate="show"
       >
         {name.split("").map((el) => (
-          <motion.span
-            style={{ x: 100 }}
-            variants={letterVar}
-            initial="hidden"
-            animate="show"
-          >
+          <motion.span variants={letterVar} initial="hidden" animate="show">
             {el}
           </motion.span>
         ))}
@@ -129,13 +124,13 @@ const Hero = () => {
 const divVariant = {
   hidden: {},
   show: {
-    transition: { delay: 0, staggerChildren: 0.15 },
+    transition: { delay: 0, staggerChildren: 0.2 },
   },
 };
 
 const letterVar = {
-  hidden: { opacity: 0, y: -50 },
-  show: { opacity: 1, y: 0 },
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.2 } },
 };
 
 const fadeIn = {

@@ -24,7 +24,13 @@ const ProjectCard: React.FC<Props> = ({ card }) => {
 
   const handleHover = () => {
     if (!isHovering) {
-      return <img src={ProjectImage} alt="Project" className="" />;
+      return (
+        <img
+          src={ProjectImage}
+          alt="Project"
+          className="h-32 object-cover w-full"
+        />
+      );
     }
 
     return (
@@ -52,7 +58,7 @@ const ProjectCard: React.FC<Props> = ({ card }) => {
 
   return (
     <motion.div
-      className="max-w-xl w-full hover:cursor-pointer transition duration-150 shadow-md border-white border-2 h-max"
+      className="max-w-lg max-h-min w-full hover:cursor-pointer transition duration-150 shadow-md border-white border-2 h-max"
       onHoverStart={() => setIsHovering(true)}
       onHoverEnd={() => setIsHovering(false)}
     >
