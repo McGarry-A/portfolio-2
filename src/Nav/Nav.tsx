@@ -11,7 +11,7 @@ const NavMenu: React.FC<{
 }> = ({ children, navIsOpen, setNavIsOpen }) => {
   return (
     <motion.div
-      className={`absolute top-0 w-screen bg-white h-screen flex justify-center items-center z-40`}
+      className={`absolute top-0 w-screen bg-white h-screen flex justify-center items-center z-40 transition duration-150`}
       variants={nav}
       initial="closed"
       exit="exit"
@@ -96,18 +96,20 @@ const hoverState = {
 };
 
 const nav = {
-  closed: {},
+  closed: {
+    width: 0,
+  },
   open: {
-    translateX: "-100",
+    width: "100%",
     transition: {
       delay: 0.1,
     },
   },
   exit: {
-    translateX: "-100%",
+    width: 0,
+    opacity: 0,
     transition: {
-      delay: 2,
-      duration: 0.5,
+      delay: 0.1,
     },
   },
 };

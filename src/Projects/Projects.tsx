@@ -1,5 +1,7 @@
 import ProjectCategory from "../ProjectCategory/ProjectCategory";
 
+import cards from "../Cards";
+
 interface Props {}
 
 const Projects: React.FC<Props> = () => {
@@ -7,9 +9,9 @@ const Projects: React.FC<Props> = () => {
     <section className="text-8xl font-bold p-16">
       <h1 className="mb-4">My Projects</h1>
       <main className="space-y-8">
-        <ProjectCategory />
-        <ProjectCategory />
-        <ProjectCategory />
+        <ProjectCategory rowTitle="React" cards={cards.React} />
+        <ProjectCategory rowTitle="Landing Pages" cards={cards.LandingPages} />
+        <ProjectCategory rowTitle="Full Stack" cards={cards.FullStack} />
       </main>
       <div className="w-full flex justify-end text-3xl mt-10">
         <button className="border-2 border-violet-700 px-4 py-3 bg-violet-700 hover:bg-violet-500 hover:border-violet-500 hover:scale-110 transition duration-150">

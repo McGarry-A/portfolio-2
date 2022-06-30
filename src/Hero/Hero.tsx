@@ -95,7 +95,7 @@ const Hero = () => {
   );
 
   return (
-    <motion.div className="text-gray-100 space-y-4 max-h-screen h-full flex flex-col lg:p-48">
+    <motion.div className="text-gray-100 space-y-4 max-h-screen h-full flex flex-col justify-center lg:pl-48">
       <motion.span
         className="text-5xl"
         variants={fadeIn}
