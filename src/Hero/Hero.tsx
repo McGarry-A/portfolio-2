@@ -8,19 +8,26 @@ import {
   FaNode,
 } from "react-icons/fa";
 import { DiJavascript1, DiMongodb } from "react-icons/di";
-import { SiRedux, SiTypescript } from "react-icons/si";
+import { AiOutlineCloudDownload } from "react-icons/ai";
+import {
+  SiRedux,
+  SiTypescript,
+  SiTailwindcss,
+  SiVuedotjs,
+} from "react-icons/si";
 
 const techIcons = [
   FaReact,
   FaHtml5,
   FaCss3Alt,
   FaSass,
-  FaNodeJs,
   FaNode,
   DiJavascript1,
   DiMongodb,
   SiRedux,
   SiTypescript,
+  SiTailwindcss,
+  SiVuedotjs,
 ];
 
 const Hero = () => {
@@ -52,14 +59,23 @@ const Hero = () => {
   const renderTechStack = () => {
     return (
       <motion.div
-        className="text-xl flex space-x-3 pt-4"
+        className="text-xl flex space-x-3 pt-4 cursor-pointer"
         variants={fadeIn}
         viewport={{ once: true }}
         initial="hide"
         animate="show"
       >
         {techIcons.map((El, index) => (
-          <El size="3rem" className="hover:text-violet-700 hover:scale-110" />
+          <motion.span
+            className="p-2"
+            whileHover={{
+              rotate: 360,
+              scale: [1, 0.8, 1.7],
+              transition: { duration: 0.3 },
+            }}
+          >
+            <El size="3rem" className="hover:text-violet-700" />
+          </motion.span>
         ))}
       </motion.div>
     );
@@ -67,7 +83,7 @@ const Hero = () => {
 
   const renderButtons = () => (
     <motion.div
-      className="space-x-4 text-2xl"
+      className="space-x-4 text-2xl flex items-center"
       variants={fadeIn}
       viewport={{ once: true }}
       initial="hide"
@@ -82,13 +98,8 @@ const Hero = () => {
       >
         Projects
       </motion.button>
-      <motion.button
-        className="px-6 py-2 text-lg border"
-        whileHover={{
-          backgroundColor: "transparent",
-          border: "1px solid white",
-        }}
-      >
+      <motion.button className="px-6 py-2 text-lg border space-x-2 inline-flex items-center hover:text-violet-500 border-violet-700">
+        <AiOutlineCloudDownload className="mx-1" size="1.3rem" />
         Resume
       </motion.button>
     </motion.div>

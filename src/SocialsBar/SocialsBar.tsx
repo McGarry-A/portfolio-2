@@ -28,8 +28,8 @@ const IconContainer: React.FC<{
         size="3rem"
         className={`cursor-pointer  hover:scale-110 transition duration-150 ${
           navIsOpen
-            ? "text-black hover:text-violet-900"
-            : "text-white hover:text-violet-900"
+            ? "text-black hover:text-violet-600"
+            : "text-white hover:text-violet-600"
         }`}
       />
     </motion.a>
