@@ -3,39 +3,18 @@ import React, { SetStateAction, useState } from "react";
 import { motion } from "framer-motion";
 import ActivelySearching from "../ActivelySearching/ActivelySearching";
 
+import { HAMBURGER_ANIMATIONS } from "../animations";
+
 interface Props {
   navIsOpen: boolean;
   setNavIsOpen: React.Dispatch<SetStateAction<boolean>>;
 }
 
+const { HAMBURGER_VARIANTS, FADEIN_Y, HAMBURGER_TRANSITION } =
+  HAMBURGER_ANIMATIONS;
+
 const Hamburger: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
   const [isHovering, setIsHovering] = useState<boolean>(false);
-  const variants = {
-    open1: {
-      WebkitTransform: "translateX(-10px) rotate(-45deg)",
-      width: "28px",
-      backgroundColor: "black",
-    },
-    open2: {
-      WebkitTransform: "translateX(-10px) rotate(45deg)",
-      width: "28px",
-      backgroundColor: "black",
-    },
-    openReverse1: {
-      WebkitTransform: "translateX(10px) rotate(45deg)",
-      width: "28px",
-    },
-    openReverse2: {
-      WebkitTransform: "translateX(10px) rotate(-45deg)",
-      width: "28px",
-    },
-    open3: {
-      backgroundColor: "black",
-    },
-    closed: {},
-  };
-
-  const transition = { ease: "easeInOut", duration: "0.15" };
 
   return (
     <header className="flex justify-between items-center">
@@ -43,7 +22,7 @@ const Hamburger: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
       <motion.div
         className="cursor-pointer z-50"
         onClick={() => setNavIsOpen(!navIsOpen)}
-        variants={fadeIn}
+        variants={FADEIN_Y}
         initial="hide"
         animate="show"
         onMouseEnter={() => setIsHovering(true)}
@@ -55,14 +34,14 @@ const Hamburger: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
             navIsOpen ? "open1" : "closed",
             isHovering ? "openReverse1" : "",
           ]}
-          variants={variants}
-          transition={transition}
+          variants={HAMBURGER_VARIANTS}
+          transition={HAMBURGER_TRANSITION}
         ></motion.span>
         <motion.span
           className={`w-[40px] h-[2px] bg-white block my-2 mx-auto transition duration-150`}
           animate={navIsOpen ? "open3" : "closed"}
-          variants={variants}
-          transition={transition}
+          variants={HAMBURGER_VARIANTS}
+          transition={HAMBURGER_TRANSITION}
         ></motion.span>
         <motion.span
           className={`w-[40px] h-[2px] bg-white block my-2 mx-auto transition duration-150`}
@@ -70,8 +49,8 @@ const Hamburger: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
             navIsOpen ? "open2" : "closed",
             isHovering ? "openReverse2" : "",
           ]}
-          variants={variants}
-          transition={transition}
+          variants={HAMBURGER_VARIANTS}
+          transition={HAMBURGER_TRANSITION}
         ></motion.span>
       </motion.div>
     </header>
@@ -79,9 +58,3 @@ const Hamburger: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
 };
 
 export default Hamburger;
-
-// Animation
-const fadeIn = {
-  hide: { opacity: 0, x: 50 },
-  show: { opacity: 1, x: 0, transition: { delay: 0.6 } },
-};

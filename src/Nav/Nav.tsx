@@ -2,8 +2,9 @@ import { Dispatch, SetStateAction } from "react";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { AiOutlineCloudDownload } from "react-icons/ai";
+import { NAV_ANIMATIONS } from "../animations";
 
-// CONTAINERS
+const { NAV_VARIANT, NAV_ITEM, NAV_LIST, HOVER_STATE } = NAV_ANIMATIONS;
 
 const NavMenu: React.FC<{
   children: React.ReactNode;
@@ -13,7 +14,7 @@ const NavMenu: React.FC<{
   return (
     <motion.div
       className={`absolute top-0 w-screen bg-white h-screen flex justify-center items-center z-40 transition duration-150`}
-      variants={nav}
+      variants={NAV_VARIANT}
       initial="closed"
       exit="exit"
       animate={navIsOpen && "open"}
@@ -40,8 +41,8 @@ const Nav: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
     return (
       <motion.li
         className="text-gray-900 text-6xl cursor-pointer"
-        variants={navItem}
-        whileHover={hoverState}
+        variants={NAV_ITEM}
+        whileHover={HOVER_STATE}
         onClick={() => setNavIsOpen(!navIsOpen)}
       >
         <NavLink to={link}>{children}</NavLink>
@@ -55,14 +56,14 @@ const Nav: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
       <NavMenu {...navProps}>
         <motion.ul
           className="text-center flex flex-col w-full items-center space-y-8"
-          variants={navlist}
+          variants={NAV_LIST}
           initial="hidden"
           animate="show"
         >
           <NavItem link="/">Home</NavItem>
           <NavItem link="/projects">Projects</NavItem>
           <NavItem link="/about">About Me</NavItem>
-          <motion.div variants={navItem}>
+          <motion.div variants={NAV_ITEM}>
             <button className="text-violet-500 text-3xl cursor-pointer border-violet-700 px-6 py-2 border-2 hover:bg-violet-600 hover:border-violet-600 hover:text-gray-100 rounded-sm transition duration-150 flex items-center">
               <AiOutlineCloudDownload size={"2.4rem"} className="mr-1" />
               Resume
@@ -77,46 +78,3 @@ const Nav: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
 };
 
 export default Nav;
-
-// ANIMATIONS
-
-const navlist = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const navItem = {
-  hidden: { opacity: 0, translateX: "-100px" },
-  show: { opacity: 1, translateX: 0 },
-};
-
-const hoverState = {
-  color: "#6d28d9",
-  transition: { duration: 0.2 },
-};
-
-const nav = {
-  closed: {
-    width: 0,
-  },
-  open: {
-    width: "100%",
-    transition: {
-      delay: 0.1,
-    },
-  },
-  exit: {
-    width: 0,
-    opacity: 0,
-    transition: {
-      delay: 0.1,
-    },
-  },
-};

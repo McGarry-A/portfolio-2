@@ -8,6 +8,9 @@ import {
 } from "react-icons/ai";
 
 import { motion } from "framer-motion";
+import { SOCIAL_ANIMATIONS } from "../animations";
+
+const { FADEIN_LEFT } = SOCIAL_ANIMATIONS;
 
 const FixedBar: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
@@ -23,7 +26,7 @@ const IconContainer: React.FC<{
   Icon: IconType;
 }> = ({ link, navIsOpen, Icon }) => {
   return (
-    <motion.a href={link} variants={fadeIn} initial="hide" animate="show">
+    <motion.a href={link} variants={FADEIN_LEFT} initial="hide" animate="show">
       <Icon
         size="3rem"
         className={`cursor-pointer  hover:scale-110 transition duration-150 ${
@@ -66,8 +69,3 @@ const SocialsBar: React.FC<Props> = ({ navIsOpen }) => {
 export default SocialsBar;
 
 // Animations
-
-const fadeIn = {
-  hide: { opacity: 0, x: -50 },
-  show: { opacity: 1, x: 0, transition: { delay: 0.6 } },
-};

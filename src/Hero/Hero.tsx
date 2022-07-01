@@ -9,6 +9,10 @@ import {
   SiVuedotjs,
 } from "react-icons/si";
 
+import { HERO_ANIMATIONS } from "../animations";
+
+const { DIV_VARIANT, LETTER_VARIANT, FADEIN_Y } = HERO_ANIMATIONS;
+
 const techIcons = [
   FaReact,
   FaHtml5,
@@ -29,14 +33,18 @@ const Hero = () => {
 
     return (
       <motion.div
-        variants={divVariant}
+        variants={DIV_VARIANT}
         className="text-8xl font-bold"
         initial="hidden"
         animate="show"
       >
         {name.split("").map((el, index) => {
           return (
-            <motion.span variants={letterVar} initial="hide" animate="show">
+            <motion.span
+              variants={LETTER_VARIANT}
+              initial="hide"
+              animate="show"
+            >
               {el}
             </motion.span>
           );
@@ -49,7 +57,7 @@ const Hero = () => {
     return (
       <motion.div
         className="text-xl flex space-x-3 pt-4 cursor-pointer"
-        variants={fadeIn}
+        variants={FADEIN_Y}
         viewport={{ once: true }}
         initial="hide"
         animate="show"
@@ -74,7 +82,7 @@ const Hero = () => {
   const renderButtons = () => (
     <motion.div
       className="space-x-4 text-2xl flex items-center"
-      variants={fadeIn}
+      variants={FADEIN_Y}
       viewport={{ once: true }}
       initial="hide"
       animate="show"
@@ -99,7 +107,7 @@ const Hero = () => {
     return (
       <motion.div
         className="w-12 h-12 rounded-full border-gray-500 border-2 bg-transparent animate-bounce flex justify-center items-center shadow-md cursor-pointer"
-        variants={fadeIn}
+        variants={FADEIN_Y}
         initial="hide"
         animate="show"
       >
@@ -112,7 +120,7 @@ const Hero = () => {
     <motion.div className="text-gray-100 space-y-4 max-h-screen h-full flex flex-col justify-center lg:pl-48 relative">
       <motion.span
         className="text-5xl"
-        variants={fadeIn}
+        variants={FADEIN_Y}
         initial="hide"
         animate="show"
         viewport={{ once: true }}
@@ -120,7 +128,7 @@ const Hero = () => {
         Hello, I am
       </motion.span>
       {renderName()}
-      <motion.div variants={fadeIn} initial="hide" animate="show">
+      <motion.div variants={FADEIN_Y} initial="hide" animate="show">
         <p className="text-gray-400 w-full text-xl max-w-2xl">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -133,27 +141,6 @@ const Hero = () => {
       <div className="pt-10">{renderDownArrow()}</div>
     </motion.div>
   );
-};
-
-// Animations
-
-const divVariant = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-  },
-};
-
-const letterVar = {
-  hide: { opacity: 0, y: "-100px" },
-  show: { opacity: 1, y: 0 },
-};
-
-const fadeIn = {
-  hide: { opacity: 0, y: 50 },
-  show: { opacity: 1, y: 0, transition: { delay: 0.6 } },
 };
 
 export default Hero;
