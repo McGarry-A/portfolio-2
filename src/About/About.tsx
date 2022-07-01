@@ -61,7 +61,7 @@ const About = () => {
         variants={divVariant}
         initial="hidden"
         animate="show"
-        className="text-right text-lg"
+        className="text-right text-lg md:mr-7"
       >
         <motion.li variants={bulletVar} initial="hide" animate="show">
           Bachelors Degree From A Russel Group University
@@ -81,7 +81,7 @@ const About = () => {
 
   const renderResume = () => (
     <motion.button
-      className="bg-violet-700 border border-violet-700 w-max flex px-8 py-2 text-2xl items-center flex-end ml-auto hover:bg-transparent hover:text-violet-500"
+      className="bg-violet-700 border border-violet-700 w-max flex px-8 py-2 text-2xl items-center flex-end ml-auto hover:bg-transparent hover:text-violet-500 transition duration-150 md:mr-7"
       variants={buttonVar}
       initial="hide"
       animate="show"

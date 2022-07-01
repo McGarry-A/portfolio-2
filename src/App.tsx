@@ -60,7 +60,9 @@ const App = () => {
   };
   return (
     <div className="bg-hero h-screen w-screen text-white font-leagueSpartan block relative">
-      <Nav {...navProps} />
+      <AnimatePresence>
+        <Nav {...navProps} key="NAV" />
+      </AnimatePresence>
       <ContentWrapper>
         <SocialsBar navIsOpen={navIsOpen} />
         <Hamburger {...navProps} />

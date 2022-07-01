@@ -1,3 +1,5 @@
+const DELAY_SHORT = 1
+
 const NAV_LIST = {
     hidden: {
       opacity: 0,
@@ -32,9 +34,9 @@ const NAV_VARIANT = {
     },
     exit: {
       width: 0,
-      opacity: 0,
+      opacity: 1,
       transition: {
-        delay: 0.1,
+        delay: 2,
       },
     },
 };
@@ -55,12 +57,12 @@ const LETTER_VARIANT = {
   
 const FADEIN_Y = {
     hide: { opacity: 0, y: 50 },
-    show: { opacity: 1, y: 0, transition: { delay: 0.6 } },
+    show: { opacity: 1, y: 0, transition: { delay: DELAY_SHORT } },
 };
 
 const FADEIN_LEFT = {
     hide: { opacity: 0, x: -50 },
-    show: { opacity: 1, x: 0, transition: { delay: 0.6 } },
+    show: { opacity: 1, x: 0, transition: { delay: DELAY_SHORT } },
   };
 
 const HAMBURGER_VARIANTS = {

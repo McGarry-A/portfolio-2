@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import ProjectCategory from "../ProjectCategory/ProjectCategory";
 
 import cards from "../Cards";
@@ -6,12 +8,19 @@ interface Props {}
 
 const Projects: React.FC<Props> = () => {
   return (
-    <section className=" p-16">
+    <motion.section
+      className="p-16"
+      initial={{ opacity: 0, y: -200 }}
+      animate={{ opacity: 1, y: 0 }}
+    >
       <div className="flex items-end justify-between w-full">
         <h1 className="mb-4 font-bold text-8xl">My Projects</h1>
         <span className="opacity-50">
           *You can view much more of my projects on{" "}
-          <a className="text-violet-400 underline cursor-pointer hover">
+          <a
+            className="text-violet-400 underline cursor-pointer hover"
+            href="www.github.com"
+          >
             GitHub!
           </a>
         </span>
@@ -26,7 +35,7 @@ const Projects: React.FC<Props> = () => {
           Download Resume
         </button>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -16,7 +16,7 @@ const NavMenu: React.FC<{
       className={`absolute top-0 w-screen bg-white h-screen flex justify-center items-center z-40 transition duration-150`}
       variants={NAV_VARIANT}
       initial="closed"
-      exit="exit"
+      exit="closed"
       animate={navIsOpen && "open"}
     >
       {children}

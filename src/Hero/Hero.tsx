@@ -11,6 +11,7 @@ import {
 
 import { HERO_ANIMATIONS } from "../animations";
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const { DIV_VARIANT, LETTER_VARIANT, FADEIN_Y } = HERO_ANIMATIONS;
 
@@ -29,6 +30,11 @@ const techIcons = [
 ];
 
 const Hero = () => {
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
   const renderName = () => {
     const name = "Ahmed McGarry";
 
@@ -42,9 +48,9 @@ const Hero = () => {
         {name.split("").map((el, index) => {
           return (
             <motion.span
-              variants={LETTER_VARIANT}
-              initial="hide"
-              animate="show"
+              initial={{ opacity: 0, y: "100px" }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.1, delay: index * 0.1 }}
             >
               {el}
             </motion.span>
@@ -113,19 +119,26 @@ const Hero = () => {
 
   const renderDownArrow = () => {
     return (
-      <motion.div
-        className="w-12 h-12 rounded-full border-gray-500 border-2 bg-transparent animate-bounce flex justify-center items-center shadow-md cursor-pointer"
-        variants={FADEIN_Y}
-        initial="hide"
-        animate="show"
-      >
-        <AiOutlineArrowDown size={"2em"} className="text-violet-700" />
-      </motion.div>
+      <div className="flex items-center">
+        <motion.div
+          className="w-12 h-12 rounded-full border-gray-500 border-2 bg-transparent animate-bounce flex justify-center items-center shadow-md cursor-pointer"
+          variants={FADEIN_Y}
+          initial="hide"
+          animate="show"
+        >
+          <AiOutlineArrowDown size={"2em"} className="text-violet-700" />
+        </motion.div>
+        <div className="ml-2 opacity-50">Read about me here!</div>
+      </div>
     );
   };
 
-  return (
-    <motion.div className="text-gray-100 space-y-4 max-h-screen h-full flex flex-col justify-center lg:pl-48 relative">
+  return loading === false ? (
+    <motion.div
+      className="text-gray-100 space-y-4 max-h-screen h-full flex flex-col justify-center lg:pl-48 relative"
+      exit={{ opacity: 0, y: 600 }}
+      transition={{ duration: 0.4 }}
+    >
       <motion.span
         className="text-5xl"
         variants={FADEIN_Y}
@@ -148,6 +161,11 @@ const Hero = () => {
       {renderTechStack()}
       <div className="pt-10">{renderDownArrow()}</div>
     </motion.div>
+  ) : (
+    <div>
+      {" "}
+      <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg>
+    </div>
   );
 };
 
