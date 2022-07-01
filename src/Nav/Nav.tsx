@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
+import { AiOutlineCloudDownload } from "react-icons/ai";
 
 // CONTAINERS
 
@@ -62,7 +63,8 @@ const Nav: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
           <NavItem link="/projects">Projects</NavItem>
           <NavItem link="/about">About Me</NavItem>
           <motion.div variants={navItem}>
-            <button className="text-violet-500 text-3xl cursor-pointer border-violet-700 px-8 py-2 border-2 hover:bg-violet-600 hover:border-violet-600 hover:text-gray-100 rounded-sm transition duration-150">
+            <button className="text-violet-500 text-3xl cursor-pointer border-violet-700 px-6 py-2 border-2 hover:bg-violet-600 hover:border-violet-600 hover:text-gray-100 rounded-sm transition duration-150 flex items-center">
+              <AiOutlineCloudDownload size={"2.4rem"} className="mr-1" />
               Resume
             </button>
           </motion.div>

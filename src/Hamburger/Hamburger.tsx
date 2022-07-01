@@ -1,6 +1,7 @@
 import React, { SetStateAction, useState } from "react";
 
 import { motion } from "framer-motion";
+import ActivelySearching from "../ActivelySearching/ActivelySearching";
 
 interface Props {
   navIsOpen: boolean;
@@ -37,7 +38,8 @@ const Hamburger: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
   const transition = { ease: "easeInOut", duration: "0.15" };
 
   return (
-    <header className="flex justify-end">
+    <header className="flex justify-between items-center">
+      <ActivelySearching />
       <motion.div
         className="cursor-pointer z-50"
         onClick={() => setNavIsOpen(!navIsOpen)}
@@ -81,5 +83,5 @@ export default Hamburger;
 // Animation
 const fadeIn = {
   hide: { opacity: 0, x: 50 },
-  show: { opacity: 1, x: 0, transition: { delay: 2.6 } },
+  show: { opacity: 1, x: 0, transition: { delay: 0.6 } },
 };

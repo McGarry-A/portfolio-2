@@ -8,6 +8,7 @@ import {
   SiTailwindcss,
   SiVuedotjs,
 } from "react-icons/si";
+import ActivelySearching from "../ActivelySearching/ActivelySearching";
 
 const techIcons = [
   FaReact,
@@ -36,7 +37,7 @@ const Hero = () => {
         animate="show"
       >
         {name.split("").map((el) => (
-          <motion.span variants={letterVar} initial="hidden" animate="show">
+          <motion.span variants={letterVar} initial="hide" animate="show">
             {el}
           </motion.span>
         ))}
@@ -61,6 +62,7 @@ const Hero = () => {
               scale: [1, 0.8, 1.7],
               transition: { duration: 0.3 },
             }}
+            key={index}
           >
             <El size="3rem" className="hover:text-violet-700" />
           </motion.span>
@@ -122,20 +124,25 @@ const Hero = () => {
 // Animations
 
 const divVariant = {
-  hidden: {},
+  hidden: {
+    opacity: 0,
+  },
   show: {
-    transition: { delay: 0, staggerChildren: 0.2 },
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
   },
 };
 
 const letterVar = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  hide: { opacity: 0, translateY: "-100px" },
+  show: { opacity: 1, translateY: 0 },
 };
 
 const fadeIn = {
   hide: { opacity: 0, y: 50 },
-  show: { opacity: 1, y: 0, transition: { delay: 2.6 } },
+  show: { opacity: 1, y: 0, transition: { delay: 0.6 } },
 };
 
 export default Hero;

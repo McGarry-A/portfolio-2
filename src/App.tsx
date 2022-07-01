@@ -37,7 +37,7 @@ const App = () => {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Hero />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/about-me" element={<About />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </AnimatePresence>
       </ContentWrapper>
