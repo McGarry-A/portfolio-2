@@ -96,7 +96,7 @@ const Hero = () => {
     >
       <NavLink to="/projects">
         <motion.button
-          className="px-9 py-2 text-lg bg-violet-700 border border-violet-700"
+          className="px-9 py-2 text-xl bg-violet-700 border border-violet-700"
           whileHover={{
             backgroundColor: "transparent",
             border: "1px solid white",
@@ -109,7 +109,7 @@ const Hero = () => {
         href="../resume/Ahmed_McGarry_Resume.pdf"
         download="Ahmed_McGarry_Resume.pdf"
       >
-        <motion.button className="px-6 py-2 text-lg border space-x-2 inline-flex items-center hover:text-violet-500 border-violet-700">
+        <motion.button className="px-6 py-2 text-xl border space-x-2 inline-flex items-center hover:text-violet-500 border-violet-700">
           <AiOutlineCloudDownload className="mx-1" size="1.3rem" />
           Resume
         </motion.button>
@@ -128,7 +128,7 @@ const Hero = () => {
         >
           <AiOutlineArrowDown size={"2em"} className="text-violet-700" />
         </motion.div>
-        <div className="ml-2 opacity-50">Read about me here!</div>
+        
       </div>
     );
   };
@@ -151,15 +151,24 @@ const Hero = () => {
       {renderName()}
       <motion.div variants={FADEIN_Y} initial="hide" animate="show">
         <p className="text-gray-400 w-full text-xl max-w-2xl">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.{" "}
+          Currenly working as a junior front end developer working at Beaty
+          Works, an E-commerce business building webpages and working with
+          technologies like React and the React Ecosystem, Magento, Attraqt and
+          much more!{" "}
+        </p>
+        <br />
+        <p className="text-gray-400 w-full text-xl max-w-2xl">
+          I am always learning new technologies. Recently, all of my projects
+          have used typescript. You can see my{" "}
+          <a href="www.google.com" className="text-violet-500 underline">
+            point of sale
+          </a>{" "}
+          web-application here where I manipulate data with Typescript.
         </p>
       </motion.div>
       {renderButtons()}
       {renderTechStack()}
-      <div className="pt-10">{renderDownArrow()}</div>
+      {/* <div className="pt-10">{renderDownArrow()}</div> */}
     </motion.div>
   ) : (
     <div>

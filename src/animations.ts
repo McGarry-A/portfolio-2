@@ -24,9 +24,15 @@ const HOVER_STATE = {
   
 const NAV_VARIANT = {
     closed: {
-      width: 0,
+      width: "0%",
+      opacity: 0,
+      transition: {
+        delay: 0.1,
+        type: "linear"
+      },
     },
     open: {
+      opacity: 1,
       width: "100%",
       transition: {
         delay: 0.1,

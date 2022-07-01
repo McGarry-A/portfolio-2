@@ -16,6 +16,7 @@ import About from "./About/About";
 import { motion } from "framer-motion";
 
 import { NAV_ANIMATIONS } from "./animations";
+import Contact from "./Contact/Contact";
 
 const { NAV_ITEM } = NAV_ANIMATIONS;
 
@@ -73,6 +74,7 @@ const App = () => {
             <Route path="/" element={<Hero />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </AnimatePresence>
       </ContentWrapper>

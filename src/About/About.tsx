@@ -61,8 +61,19 @@ const About = () => {
         variants={divVariant}
         initial="hidden"
         animate="show"
-        className="text-right text-lg md:mr-7"
+        className="text-right md:mr-7 text-gray-400 text-xl"
       >
+        <div className="flex justify-between">
+          <div ></div>
+          <motion.li
+            variants={bulletVar}
+            initial="hide"
+            animate="show"
+            className="text-2xl text-white border-b-4 border-violet-700 text-right mb-2"
+          >
+            Cliff Notes
+          </motion.li>
+        </div>
         <motion.li variants={bulletVar} initial="hide" animate="show">
           Bachelors Degree From A Russel Group University
         </motion.li>

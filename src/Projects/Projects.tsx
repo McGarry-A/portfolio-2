@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import ProjectCategory from "../ProjectCategory/ProjectCategory";
 
 import cards from "../Cards";
+import { NavLink } from "react-router-dom";
 
 interface Props {}
 
@@ -30,8 +31,13 @@ const Projects: React.FC<Props> = () => {
         <ProjectCategory rowTitle="Full Stack" cards={cards.FullStack} />
         <ProjectCategory rowTitle="Landing Pages" cards={cards.LandingPages} />
       </main>
-      <div className="w-full flex justify-end text-3xl mt-10">
-        <button className="border-2 border-violet-700 px-4 py-3 bg-violet-700 hover:bg-transparent hover:text-violet-400 hover:border-violet-500 transition duration-150">
+      <div className="w-full flex flex-col items-end  text-3xl mt-10">
+        <NavLink to="/contact">
+          <button className="border-2 border-violet-700 px-4 py-3 bg-transparent hover:text-violet-400 hover:border-violet-500 transition duration-150 block my-1 w-72">
+            Contact
+          </button>
+        </NavLink>
+        <button className="border-2 border-violet-700 px-4 py-3 bg-violet-700 hover:bg-transparent hover:text-violet-400 hover:border-violet-500 transition duration-150 w-72">
           Download Resume
         </button>
       </div>

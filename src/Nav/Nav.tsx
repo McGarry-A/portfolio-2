@@ -13,11 +13,11 @@ const NavMenu: React.FC<{
 }> = ({ children, navIsOpen, setNavIsOpen }) => {
   return (
     <motion.div
-      className={`absolute top-0 w-screen bg-white h-screen flex justify-center items-center z-40 transition duration-150`}
+      className={`absolute top-0 bg-white h-screen flex justify-center items-center z-40`}
       variants={NAV_VARIANT}
       initial="closed"
       exit="closed"
-      animate={navIsOpen && "open"}
+      animate={navIsOpen ? "open" : "closed"}
     >
       {children}
     </motion.div>
@@ -51,7 +51,6 @@ const Nav: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
   };
   const navProps = { navIsOpen, setNavIsOpen };
 
-  if (navIsOpen) {
     return (
       <NavMenu {...navProps}>
         <motion.ul
@@ -63,6 +62,7 @@ const Nav: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
           <NavItem link="/">Home</NavItem>
           <NavItem link="/projects">Projects</NavItem>
           <NavItem link="/about">About Me</NavItem>
+          <NavItem link="/contact">Contact</NavItem>
           <motion.div variants={NAV_ITEM}>
             <button className="text-violet-500 text-3xl cursor-pointer border-violet-700 px-6 py-2 border-2 hover:bg-violet-600 hover:border-violet-600 hover:text-gray-100 rounded-sm transition duration-150 flex items-center">
               <AiOutlineCloudDownload size={"2.4rem"} className="mr-1" />
@@ -72,9 +72,6 @@ const Nav: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
         </motion.ul>
       </NavMenu>
     );
-  }
-
-  return <></>;
 };
 
 export default Nav;
