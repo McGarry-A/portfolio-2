@@ -24,11 +24,11 @@ const ProjectCard: React.FC<Props> = ({ card }) => {
 
   const handleHover = () => {
     const hide = "hidden";
-    const show = "block";
+    const show = "flex flex-col space-y-2";
     return (
       <figcaption
         className={`text-gray-200 flex-col space-y-2 transition duration-150 ${
-          isHovering ? "p-4" : "p-0 h-auto"
+          isHovering ? "px-4 py-1" : "p-0 h-auto"
         }`}
       >
         <img
@@ -46,14 +46,16 @@ const ProjectCard: React.FC<Props> = ({ card }) => {
           <div>
             <p className="text-sm font-normal tracking-tight">{description}</p>
           </div>
-          <div className="flex space-x-2 h-full pt-4">
+          <div className="absolute bottom-2 space-x-4">
             <a href={liveLink}>
-              <button className="border-2 px-4 py-2 text-sm">
+              <button className="border-2 border-gray-300 px-4 py-2 text-sm hover:border-violet-500 hover:text-violet-400">
                 Live Instance
               </button>
             </a>
             <a href={github}>
-              <button className="border-2 px-4 py-2 text-sm">Github</button>
+              <button className="border-2 border-gray-300 px-4 py-2 text-sm hover:border-violet-500 hover:text-violet-400">
+                Github
+              </button>
             </a>
           </div>
         </div>
@@ -63,7 +65,7 @@ const ProjectCard: React.FC<Props> = ({ card }) => {
 
   return (
     <motion.div
-      className="max-w-xs w-full hover:cursor-pointer transition duration-150 shadow-md border-white border-2"
+      className="max-w-xs w-full hover:cursor-pointer transition duration-150 shadow-md border-white border-2 h-[200px] overflow-hidden relative"
       onHoverStart={() => setIsHovering(true)}
       onHoverEnd={() => setIsHovering(false)}
     >
