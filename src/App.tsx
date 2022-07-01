@@ -13,6 +13,12 @@ import Nav from "./Nav/Nav";
 import Projects from "./Projects/Projects";
 import About from "./About/About";
 
+import { motion } from "framer-motion";
+
+import { NAV_ANIMATIONS } from "./animations";
+
+const { NAV_ITEM } = NAV_ANIMATIONS;
+
 const ContentWrapper: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => (
@@ -26,12 +32,39 @@ const App = () => {
   const navProps = { navIsOpen, setNavIsOpen };
   const location = useLocation();
 
+  const renderShortDesc = () => {
+    return (
+      <motion.div
+        className={`opacity-50 text-right absolute right-20 bottom-5 z-50 ${
+          navIsOpen ? "text-gray-700" : "text-gray-400"
+        }`}
+        variants={NAV_ITEM}
+        initial="hidden"
+        animate="show"
+      >
+        <p>
+          This website was created and designed soley by Ahmed McGarry using
+          Typescript, React, Tailwind and FramerMotion.
+        </p>
+        <p>
+          Click here to view the{" "}
+          <a
+            href="https://github.com/McGarry-A/portfolio-2"
+            className="underline underline-violet-600 text-violet-500 cursor-pointer"
+          >
+            Source Code
+          </a>
+        </p>
+      </motion.div>
+    );
+  };
   return (
     <div className="bg-hero h-screen w-screen text-white font-leagueSpartan block relative">
       <Nav {...navProps} />
       <ContentWrapper>
         <SocialsBar navIsOpen={navIsOpen} />
         <Hamburger {...navProps} />
+        {renderShortDesc()}
 
         <AnimatePresence exitBeforeEnter>
           <Routes location={location} key={location.pathname}>

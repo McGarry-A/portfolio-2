@@ -1,11 +1,6 @@
 import { motion } from "framer-motion";
 
-interface Props {
-  searching?: boolean;
-}
-
-const ActivelySearching = ({ searching = true }: Props) => {
-  const color = searching ? "red" : "green";
+const ActivelySearching = () => {
   return (
     <motion.div
       className="flex"
@@ -14,12 +9,8 @@ const ActivelySearching = ({ searching = true }: Props) => {
       animate="show"
     >
       <span className="flex h-3 w-3 relative mr-2">
-        <span
-          className={`animate-ping absolute inline-flex h-full w-full rounded-full bg-${color}-500 opacity-80`}
-        ></span>
-        <span
-          className={`relative inline-flex rounded-full h-3 w-3 bg-${color}-500`}
-        ></span>
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-80"></span>
+        <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
       </span>
       <span className="text-white uppercase text-xs tracking-widest opacity-50">
         Open To Oppertunities

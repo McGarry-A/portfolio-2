@@ -10,6 +10,7 @@ import {
 } from "react-icons/si";
 
 import { HERO_ANIMATIONS } from "../animations";
+import { NavLink } from "react-router-dom";
 
 const { DIV_VARIANT, LETTER_VARIANT, FADEIN_Y } = HERO_ANIMATIONS;
 
@@ -81,25 +82,32 @@ const Hero = () => {
 
   const renderButtons = () => (
     <motion.div
-      className="space-x-4 text-2xl flex items-center"
+      className="space-x-2 text-2xl flex items-center"
       variants={FADEIN_Y}
       viewport={{ once: true }}
       initial="hide"
       animate="show"
     >
-      <motion.button
-        className="px-6 py-2 text-lg bg-violet-700 border border-violet-700"
-        whileHover={{
-          backgroundColor: "transparent",
-          border: "1px solid white",
-        }}
+      <NavLink to="/projects">
+        <motion.button
+          className="px-9 py-2 text-lg bg-violet-700 border border-violet-700"
+          whileHover={{
+            backgroundColor: "transparent",
+            border: "1px solid white",
+          }}
+        >
+          Projects
+        </motion.button>
+      </NavLink>
+      <a
+        href="../resume/Ahmed_McGarry_Resume.pdf"
+        download="Ahmed_McGarry_Resume.pdf"
       >
-        Projects
-      </motion.button>
-      <motion.button className="px-6 py-2 text-lg border space-x-2 inline-flex items-center hover:text-violet-500 border-violet-700">
-        <AiOutlineCloudDownload className="mx-1" size="1.3rem" />
-        Resume
-      </motion.button>
+        <motion.button className="px-6 py-2 text-lg border space-x-2 inline-flex items-center hover:text-violet-500 border-violet-700">
+          <AiOutlineCloudDownload className="mx-1" size="1.3rem" />
+          Resume
+        </motion.button>
+      </a>
     </motion.div>
   );
 
