@@ -13,6 +13,7 @@ const Projects: React.FC<Props> = () => {
       className="p-16"
       initial={{ opacity: 0, y: -200 }}
       animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -200 }}
     >
       <div className="flex items-end justify-between w-full">
         <h1 className="mb-4 font-bold text-8xl">My Projects</h1>
