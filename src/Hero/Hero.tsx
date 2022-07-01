@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
 import { FaReact, FaHtml5, FaCss3Alt, FaSass, FaNode } from "react-icons/fa";
 import { DiJavascript1, DiMongodb } from "react-icons/di";
-import { AiOutlineCloudDownload } from "react-icons/ai";
+import { AiOutlineArrowDown, AiOutlineCloudDownload } from "react-icons/ai";
 import {
   SiRedux,
   SiTypescript,
   SiTailwindcss,
   SiVuedotjs,
 } from "react-icons/si";
-import ActivelySearching from "../ActivelySearching/ActivelySearching";
 
 const techIcons = [
   FaReact,
@@ -31,16 +30,17 @@ const Hero = () => {
     return (
       <motion.div
         variants={divVariant}
-        viewport={{ once: true }}
         className="text-8xl font-bold"
         initial="hidden"
         animate="show"
       >
-        {name.split("").map((el) => (
-          <motion.span variants={letterVar} initial="hide" animate="show">
-            {el}
-          </motion.span>
-        ))}
+        {name.split("").map((el, index) => {
+          return (
+            <motion.span variants={letterVar} initial="hide" animate="show">
+              {el}
+            </motion.span>
+          );
+        })}
       </motion.div>
     );
   };
@@ -95,8 +95,21 @@ const Hero = () => {
     </motion.div>
   );
 
+  const renderDownArrow = () => {
+    return (
+      <motion.div
+        className="w-12 h-12 rounded-full border-gray-500 border-2 bg-transparent animate-bounce flex justify-center items-center shadow-md cursor-pointer"
+        variants={fadeIn}
+        initial="hide"
+        animate="show"
+      >
+        <AiOutlineArrowDown size={"2em"} className="text-violet-700" />
+      </motion.div>
+    );
+  };
+
   return (
-    <motion.div className="text-gray-100 space-y-4 max-h-screen h-full flex flex-col justify-center lg:pl-48">
+    <motion.div className="text-gray-100 space-y-4 max-h-screen h-full flex flex-col justify-center lg:pl-48 relative">
       <motion.span
         className="text-5xl"
         variants={fadeIn}
@@ -117,6 +130,7 @@ const Hero = () => {
       </motion.div>
       {renderButtons()}
       {renderTechStack()}
+      <div className="pt-10">{renderDownArrow()}</div>
     </motion.div>
   );
 };
@@ -129,15 +143,12 @@ const divVariant = {
   },
   show: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
   },
 };
 
 const letterVar = {
-  hide: { opacity: 0, translateY: "-100px" },
-  show: { opacity: 1, translateY: 0 },
+  hide: { opacity: 0, y: "-100px" },
+  show: { opacity: 1, y: 0 },
 };
 
 const fadeIn = {
