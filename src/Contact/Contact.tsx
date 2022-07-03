@@ -9,11 +9,31 @@ import emailjs from "emailjs-com";
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
-  const [error, setError] = useState<boolean>(false);
-  const [done, setDone] = useState<boolean>(true);
+  const [error, setError] = useState<boolean | string>(false);
+  const [done, setDone] = useState<boolean>(false);
+
+  const nameRef = useRef<HTMLInputElement>(null)
+  const companyRef = useRef<HTMLInputElement>(null)
+  const phoneRef = useRef<HTMLInputElement>(null)
+  const emailRef = useRef<HTMLInputElement>(null)
+  const messageRef = useRef<HTMLTextAreaElement>(null)
+  
+  const refsArray = [nameRef, companyRef, phoneRef, emailRef, messageRef]
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const isBlankArray = refsArray.map(el => {
+      if (el.current?.value === ""){
+        return false
+      }
+      return true
+    })
+
+    if (isBlankArray.includes(false)) {
+      setError("Please complete all fields")
+      return
+    }
     emailjs
       .sendForm(
         "service_8j8uh0z",
@@ -28,7 +48,7 @@ const Contact = () => {
         },
         (error) => {
           console.log(error.text);
-          setError(true);
+          setError("There was an error sending your message");
         }
       );
   };
@@ -69,6 +89,9 @@ const Contact = () => {
             I will be reviewing your E-mail and get back to you as soon as
             possible.
           </p>
+          <button className="my-2 border-b-4 border-violet-500 italic" onClick={() => setDone(false)}>
+            Send another message
+          </button>
         </div>
       ) : (
         <form
@@ -82,6 +105,7 @@ const Contact = () => {
               type="text"
               name="contact_name"
               className="w-full h-12 focus:outline-violet-700 p-2"
+              ref={nameRef}
             />
           </div>
           <div>
@@ -90,6 +114,7 @@ const Contact = () => {
               type="text"
               name="contact_company"
               className="w-full h-12 focus:outline-violet-700 p-2"
+              ref={companyRef}
             />
           </div>
           <div>
@@ -100,6 +125,7 @@ const Contact = () => {
               type="phone"
               name="contact_number"
               className="w-full h-12 focus:outline-violet-700 p-2"
+              ref={phoneRef}
             />
           </div>
           <div>
@@ -110,6 +136,7 @@ const Contact = () => {
               type="text"
               name="contact_email"
               className="w-full h-12 focus:outline-violet-700 p-2"
+              ref={emailRef}
             />
           </div>
           <div className="col-span-2 mt-2">
@@ -120,9 +147,14 @@ const Contact = () => {
               className="w-full focus:outline-violet-700 p-2"
               rows={10}
               name="message"
+              ref={messageRef}
             ></textarea>
           </div>
-          <div></div>
+          <div>
+            {error && (
+              <p className="text-red-600 text-lg">{error}</p>
+            )}
+          </div>
           <div className="justify-self-end">
             <button className="text-2xl px-10 py-2 border border-violet-700 hover:text-violet-400 text-gray-50 bg-violet-700 transition duration-150 hover:border-violet-700 flex items-center justify-center">
               <TbSend className="mr-1" />

@@ -91,9 +91,8 @@ const Hero = () => {
     >
       <NavLink to="/projects">
         <motion.button
-          className="px-9 py-2 text-xl bg-violet-700 border border-violet-700"
+          className="px-9 py-2 text-xl bg-violet-700 border border-violet-700 hover:bg-transparent transition duration-150"
           whileHover={{
-            backgroundColor: "transparent",
             border: "1px solid white",
           }}
         >
@@ -154,13 +153,13 @@ const Hero = () => {
         <br />
         <p className="text-gray-400 w-full text-xl max-w-2xl">
           Some of my most recent projects include a{" "}
-          <a href="www.google.com" className="text-violet-500 underline">
+          <a href="www.google.com" className="text-violet-500 underline hover:text-violet-400">
             Point of Sale
           </a>{" "}
           web-application that allows for adding and tracking of customers and
           orders, inspired by my time at CleanCloud. I have also created an
           Ecommerce Front-end,{" "}
-          <a href="www.google.com" className="text-violet-500 underline">
+          <a href="www.google.com" className="text-violet-500 underline hover:text-violet-400">
             Audiophile
           </a>.
         </p>
