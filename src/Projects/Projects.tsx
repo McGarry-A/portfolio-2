@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import Resume from "../resume/Ahmed_McGarry_Resume.pdf";
 import ProjectCategory from "../ProjectCategory/ProjectCategory";
 
 import cards from "../Cards";
@@ -38,9 +38,13 @@ const Projects: React.FC<Props> = () => {
             Contact
           </button>
         </NavLink>
-        <button className="border-2 border-violet-700 px-4 py-3 bg-violet-700 hover:bg-transparent hover:text-violet-400 hover:border-violet-500 transition duration-150 w-72">
-          Download Resume
-        </button>
+        <a
+          className="border-2 border-violet-700 px-4 py-3 bg-violet-700 hover:bg-transparent hover:text-violet-400 hover:border-violet-500 transition duration-150 w-72 text-center"
+          href={Resume}
+          download="AhmedMcGarry_Resume.pdf"
+        >
+          Resume
+        </a>
       </div>
     </motion.section>
   );

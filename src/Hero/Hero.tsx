@@ -13,6 +13,8 @@ import { HERO_ANIMATIONS } from "../animations";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+import Resume from "../resume/Ahmed_McGarry_Resume.pdf";
+
 const { DIV_VARIANT, LETTER_VARIANT, FADEIN_Y } = HERO_ANIMATIONS;
 
 const techIcons = [
@@ -99,10 +101,7 @@ const Hero = () => {
           Projects
         </motion.button>
       </NavLink>
-      <a
-        href="../resume/Ahmed_McGarry_Resume.pdf"
-        download="Ahmed_McGarry_Resume.pdf"
-      >
+      <a href={Resume} download="Ahmed_McGarry_Resume.pdf">
         <motion.button className="px-6 py-2 text-xl border space-x-2 inline-flex items-center hover:text-violet-500 border-violet-700">
           <AiOutlineCloudDownload className="mx-1" size="1.3rem" />
           Resume
@@ -153,15 +152,22 @@ const Hero = () => {
         <br />
         <p className="text-gray-400 w-full text-xl max-w-2xl">
           Some of my most recent projects include a{" "}
-          <a href="www.google.com" className="text-violet-500 underline hover:text-violet-400">
+          <a
+            href="https://pos-vert.vercel.app/"
+            className="text-violet-500 underline hover:text-violet-400"
+          >
             Point of Sale
           </a>{" "}
           web-application that allows for adding and tracking of customers and
           orders, inspired by my time at CleanCloud. I have also created an
           Ecommerce Front-end,{" "}
-          <a href="www.google.com" className="text-violet-500 underline hover:text-violet-400">
+          <a
+            href="https://mcgarry-a.github.io/audiophile/"
+            className="text-violet-500 underline hover:text-violet-400"
+          >
             Audiophile
-          </a>.
+          </a>
+          .
         </p>
       </motion.div>
       {renderButtons()}

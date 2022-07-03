@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { AiOutlineCloudDownload } from "react-icons/ai";
+import Resume from "../resume/Ahmed_McGarry_Resume.pdf"
 
 const About = () => {
   const renderTitle = () => (
@@ -91,15 +92,17 @@ const About = () => {
   );
 
   const renderResume = () => (
-    <motion.button
+    <motion.a
       className="bg-violet-700 border border-violet-700 w-max flex px-8 py-2 text-2xl items-center flex-end ml-auto hover:bg-transparent hover:text-violet-500 transition duration-150 md:mr-7"
       variants={buttonVar}
       initial="hide"
       animate="show"
+      href={Resume}
+      download="AhmedMcGarry_Resume.pdf"
     >
       <AiOutlineCloudDownload size={"1.4rem"} className="mr-1" />
       Resume
-    </motion.button>
+    </motion.a>
   );
 
   return (

@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import { AiOutlineCloudDownload } from "react-icons/ai";
 import { NAV_ANIMATIONS } from "../animations";
 
+import Resume from "../resume/Ahmed_McGarry_Resume.pdf";
+
 const { NAV_VARIANT, NAV_ITEM, NAV_LIST, HOVER_STATE } = NAV_ANIMATIONS;
 
 const NavMenu: React.FC<{
@@ -51,27 +53,31 @@ const Nav: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
   };
   const navProps = { navIsOpen, setNavIsOpen };
 
-    return (
-      <NavMenu {...navProps}>
-        <motion.ul
-          className="text-center flex flex-col w-full items-center space-y-8"
-          variants={NAV_LIST}
-          initial="hidden"
-          animate="show"
-        >
-          <NavItem link="/">Home</NavItem>
-          <NavItem link="/projects">Projects</NavItem>
-          <NavItem link="/about">About Me</NavItem>
-          <NavItem link="/contact">Contact</NavItem>
-          <motion.div variants={NAV_ITEM}>
-            <button className="text-violet-500 text-3xl cursor-pointer border-violet-700 px-6 py-2 border-2 hover:bg-violet-600 hover:border-violet-600 hover:text-gray-100 rounded-sm transition duration-150 flex items-center">
-              <AiOutlineCloudDownload size={"2.4rem"} className="mr-1" />
-              Resume
-            </button>
-          </motion.div>
-        </motion.ul>
-      </NavMenu>
-    );
+  return (
+    <NavMenu {...navProps}>
+      <motion.ul
+        className="text-center flex flex-col w-full items-center space-y-8"
+        variants={NAV_LIST}
+        initial="hidden"
+        animate="show"
+      >
+        <NavItem link="/">Home</NavItem>
+        <NavItem link="/projects">Projects</NavItem>
+        <NavItem link="/about">About Me</NavItem>
+        <NavItem link="/contact">Contact</NavItem>
+        <motion.div variants={NAV_ITEM}>
+          <a
+            className="text-violet-500 text-3xl cursor-pointer border-violet-700 px-6 py-2 border-2 hover:bg-violet-600 hover:border-violet-600 hover:text-gray-100 rounded-sm transition duration-150 flex items-center"
+            href={Resume}
+            download="AhmedMcGarry_Resume.pdf"
+          >
+            <AiOutlineCloudDownload size={"2.4rem"} className="mr-1" />
+            Resume
+          </a>
+        </motion.div>
+      </motion.ul>
+    </NavMenu>
+  );
 };
 
 export default Nav;

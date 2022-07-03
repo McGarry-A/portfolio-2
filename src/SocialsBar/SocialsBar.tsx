@@ -47,18 +47,12 @@ const SocialsBar: React.FC<Props> = ({ navIsOpen }) => {
   return (
     <FixedBar>
       <IconContainer
-        link="Twitter"
+        link="https://www.linkedin.com/in/ahmed-mcgarry-b82438161/"
         navIsOpen={navIsOpen}
-        Icon={AiOutlineTwitter}
+        Icon={AiFillGithub}
       />
       <IconContainer
-        link="Facebook"
-        navIsOpen={navIsOpen}
-        Icon={AiFillFacebook}
-      />
-      <IconContainer link="GitHub" navIsOpen={navIsOpen} Icon={AiFillGithub} />
-      <IconContainer
-        link="Linkedin"
+        link="https://github.com/McGarry-A"
         navIsOpen={navIsOpen}
         Icon={AiFillLinkedin}
       />
