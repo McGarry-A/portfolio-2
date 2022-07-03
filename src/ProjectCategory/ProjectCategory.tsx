@@ -12,12 +12,13 @@ export interface CardInterface {
   liveLink: string;
   description: string;
   Image: string;
+  responsive: boolean;
 }
 
 const ProjectCategory: React.FC<Props> = ({ rowTitle, cards }) => {
   const renderCards = () => {
     return (
-      <div className="flex space-x-8">
+      <div className="flex space-x-8 overflow-x-scroll overflow-hidden">
         {cards.map((el, index) => (
           <ProjectCard card={el} key={index} />
         ))}

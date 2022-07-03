@@ -28,8 +28,8 @@ const Projects: React.FC<Props> = () => {
         </span>
       </div>
       <main className="space-y-8">
-        <ProjectCategory rowTitle="React" cards={cards.React} />
-        <ProjectCategory rowTitle="Full Stack" cards={cards.FullStack} />
+        <ProjectCategory rowTitle="React & Typescript" cards={cards.React} />
+        <ProjectCategory rowTitle="Vue" cards={cards.Vue} />
         <ProjectCategory rowTitle="Landing Pages" cards={cards.LandingPages} />
       </main>
       <div className="w-full flex flex-col items-end  text-3xl mt-10">

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { FaReact, FaHtml5, FaCss3Alt, FaSass, FaNode } from "react-icons/fa";
 import { DiJavascript1, DiMongodb } from "react-icons/di";
-import { AiOutlineArrowDown, AiOutlineCloudDownload } from "react-icons/ai";
+import { AiOutlineCloudDownload } from "react-icons/ai";
 import {
   SiRedux,
   SiTypescript,
@@ -42,16 +42,12 @@ const Hero = () => {
       <motion.div
         variants={DIV_VARIANT}
         className="text-8xl font-bold"
-        initial="hidden"
+        initial="hide"
         animate="show"
       >
         {name.split("").map((el, index) => {
           return (
-            <motion.span
-              initial={{ opacity: 0, y: "100px" }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.1, delay: index * 0.1 }}
-            >
+            <motion.span variants={LETTER_VARIANT} key={index}>
               {el}
             </motion.span>
           );
@@ -65,7 +61,6 @@ const Hero = () => {
       <motion.div
         className="text-xl flex space-x-3 pt-4 cursor-pointer"
         variants={FADEIN_Y}
-        viewport={{ once: true }}
         initial="hide"
         animate="show"
       >
@@ -117,21 +112,21 @@ const Hero = () => {
     </motion.div>
   );
 
-  const renderDownArrow = () => {
-    return (
-      <div className="flex items-center">
-        <motion.div
-          className="w-12 h-12 rounded-full border-gray-500 border-2 bg-transparent animate-bounce flex justify-center items-center shadow-md cursor-pointer"
-          variants={FADEIN_Y}
-          initial="hide"
-          animate="show"
-        >
-          <AiOutlineArrowDown size={"2em"} className="text-violet-700" />
-        </motion.div>
-        
-      </div>
-    );
-  };
+  // const renderDownArrow = () => {
+  //   return (
+  //     <div className="flex items-center">
+  //       <motion.div
+  //         className="w-12 h-12 rounded-full border-gray-500 border-2 bg-transparent animate-bounce flex justify-center items-center shadow-md cursor-pointer"
+  //         variants={FADEIN_Y}
+  //         initial="hide"
+  //         animate="show"
+  //       >
+  //         <AiOutlineArrowDown size={"2em"} className="text-violet-700" />
+  //       </motion.div>
+
+  //     </div>
+  //   );
+  // };
 
   return loading === false ? (
     <motion.div
@@ -158,12 +153,16 @@ const Hero = () => {
         </p>
         <br />
         <p className="text-gray-400 w-full text-xl max-w-2xl">
-          I am always learning new technologies. Recently, all of my projects
-          have used typescript. You can see my{" "}
+          Some of my most recent projects include a{" "}
           <a href="www.google.com" className="text-violet-500 underline">
-            point of sale
+            Point of Sale
           </a>{" "}
-          web-application here where I manipulate data with Typescript.
+          web-application that allows for adding and tracking of customers and
+          orders, inspired by my time at CleanCloud. I have also created an
+          Ecommerce Front-end,{" "}
+          <a href="www.google.com" className="text-violet-500 underline">
+            Audiophile
+          </a>.
         </p>
       </motion.div>
       {renderButtons()}

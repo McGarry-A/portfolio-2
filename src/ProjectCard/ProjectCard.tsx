@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ProjectImage from "../images/ProjectsImage.png";
+
 import { motion } from "framer-motion";
 
 import { CardInterface } from "../ProjectCategory/ProjectCategory";
@@ -10,11 +10,12 @@ interface Props {
 
 const ProjectCard: React.FC<Props> = ({ card }) => {
   const [isHovering, setIsHovering] = useState<boolean>();
-  const { title, techStack, github, liveLink, description } = card;
+  const { title, techStack, github, liveLink, description, Image, responsive } =
+    card;
 
   const renderTechItems = (items: string[]) => {
     return (
-      <p className="opacity-60 text-right text-xs">
+      <p className="opacity-60 text-right text-sm">
         {items.map((el) => (
           <>{el} </>
         ))}
@@ -22,29 +23,45 @@ const ProjectCard: React.FC<Props> = ({ card }) => {
     );
   };
 
+  const renderResponsiveTag = () => {
+    if (responsive) {
+      return (
+        <div className="absolute top-5 right-0 bg-violet-800 text-gray-50 py-1 px-3 ">
+          Responsive
+        </div>
+      );
+    }
+  };
+
   const handleHover = () => {
     const hide = "hidden";
     const show = "flex flex-col space-y-2";
     return (
       <figcaption
-        className={`text-gray-200 flex-col space-y-2 transition duration-150 ${
-          isHovering ? "px-4 py-1" : "p-0 h-auto"
+        className={`text-gray-200 flex-col transition duration-150 ${
+          isHovering ? "px-4 py-1" : "p-0"
         }`}
       >
-        <img
-          src={ProjectImage}
-          alt="Project"
-          className={`object-cover w-full transition duration-150 ${
-            isHovering ? hide : show
-          }`}
-        />
-        <div className={`transition duration-150 ${isHovering ? show : hide}`}>
+        <div className={`${isHovering ? hide : show} relative`}>
+          <img
+            src={Image}
+            alt="Project"
+            className={`w-full transition duration-150 object-cover `}
+          />
+
+          {renderResponsiveTag()}
+        </div>
+        <div
+          className={`transition duration-150 p-2 ${isHovering ? show : hide}`}
+        >
           <div>
-            <h3 className="text-lg">{title}</h3>
+            <h3 className="text-xl font-bold">{title}</h3>
             {renderTechItems(techStack)}
           </div>
           <div>
-            <p className="text-sm font-normal tracking-tight">{description}</p>
+            <p className="font-normal tracking-tight text-gray-300">
+              {description}
+            </p>
           </div>
           <div className="absolute bottom-2 space-x-4">
             <a href={liveLink}>
@@ -65,7 +82,7 @@ const ProjectCard: React.FC<Props> = ({ card }) => {
 
   return (
     <motion.div
-      className="max-w-xs w-full hover:cursor-pointer transition duration-150 shadow-md border-white border-2 h-[200px] overflow-hidden relative"
+      className="min-w-[392px] w-[392px] hover:cursor-pointer transition duration-150 border-white border-2 h-[200px] relative"
       onHoverStart={() => setIsHovering(true)}
       onHoverEnd={() => setIsHovering(false)}
     >

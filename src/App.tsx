@@ -15,15 +15,15 @@ import About from "./About/About";
 
 import { motion } from "framer-motion";
 
-import { NAV_ANIMATIONS } from "./animations";
+import { HAMBURGER_ANIMATIONS } from "./animations";
 import Contact from "./Contact/Contact";
 
-const { NAV_ITEM } = NAV_ANIMATIONS;
+const { FADEIN_RIGHT } = HAMBURGER_ANIMATIONS;
 
 const ContentWrapper: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => (
-  <div className="max-w-[1920px] p-10 mx-auto relative h-screen">
+  <div className="max-w-[1920px] py-10 px-16 mx-auto relative h-screen">
     {children}
   </div>
 );
@@ -36,11 +36,11 @@ const App = () => {
   const renderShortDesc = () => {
     return (
       <motion.div
-        className={`opacity-50 text-right absolute right-20 bottom-5 z-50 ${
+        className={`opacity-50 text-right absolute right-32 bottom-5 z-50 ${
           navIsOpen ? "text-gray-700" : "text-gray-400"
         }`}
-        variants={NAV_ITEM}
-        initial="hidden"
+        variants={FADEIN_RIGHT}
+        initial="hide"
         animate="show"
       >
         <p>

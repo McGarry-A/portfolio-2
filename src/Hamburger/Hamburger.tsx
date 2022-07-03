@@ -10,7 +10,7 @@ interface Props {
   setNavIsOpen: React.Dispatch<SetStateAction<boolean>>;
 }
 
-const { HAMBURGER_VARIANTS, FADEIN_Y, HAMBURGER_TRANSITION } =
+const { HAMBURGER_VARIANTS, FADEIN_RIGHT, HAMBURGER_TRANSITION } =
   HAMBURGER_ANIMATIONS;
 
 const Hamburger: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
@@ -22,7 +22,7 @@ const Hamburger: React.FC<Props> = ({ navIsOpen, setNavIsOpen }) => {
       <motion.div
         className="cursor-pointer z-50"
         onClick={() => setNavIsOpen(!navIsOpen)}
-        variants={FADEIN_Y}
+        variants={FADEIN_RIGHT}
         initial="hide"
         animate="show"
         onMouseEnter={() => setIsHovering(true)}
