@@ -1,10 +1,8 @@
 import React from "react";
 import { IconType } from "react-icons";
 import {
-  AiFillFacebook,
   AiFillLinkedin,
   AiFillGithub,
-  AiOutlineTwitter,
 } from "react-icons/ai";
 
 import { motion } from "framer-motion";
