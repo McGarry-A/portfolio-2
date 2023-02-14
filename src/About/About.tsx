@@ -106,7 +106,7 @@ const About = () => {
   );
 
   return (
-    <motion.div className="text-gray-100 space-y-6 max-h-screen h-full flex flex-col justify-center lg:pl-48 max-w-4xl mx-auto w-full text-justify">
+    <motion.div className="text-gray-100 space-y-6 max-h-screen h-full flex flex-1 flex-col justify-center lg:pl-48 max-w-4xl mx-auto w-full text-justify">
       {renderTitle()}
       {renderBody()}
       {renderBullets()}

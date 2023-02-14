@@ -12,7 +12,7 @@ const { FADEIN_LEFT } = SOCIAL_ANIMATIONS;
 
 const FixedBar: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div className="absolute h-screen z-50 top-0 left-0 w-20 flex flex-col justify-center items-center space-y-10">
+    <div className="absolute h-screen z-50 top-0 left-0 w-20 lg:flex flex-col justify-center items-center space-y-10 hidden">
       {children}
     </div>
   );
