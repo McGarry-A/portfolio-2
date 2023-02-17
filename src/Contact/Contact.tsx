@@ -55,7 +55,7 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="text-gray-100 space-y-6 max-h-screen h-full flex flex-col justify-center lg:pl-48 max-w-4xl mx-auto w-full text-justify"
+      className="text-gray-100 space-y-6 max-h-screen h-full flex flex-col justify-center lg:pl-48 max-w-4xl mx-auto w-full text-justify flex-1"
       initial={{ opacity: 0, y: 200 }}
       animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
       exit={{ opacity: 0, y: 200, transition: { delay: 0.1 } }}
