@@ -16,6 +16,7 @@ interface ITAB_MAP {
     techStack: string[];
     description: string;
     github: string;
+    backend?: string;
     liveLink: string;
     Image: string;
     responsive: boolean;
@@ -35,9 +36,9 @@ const TAB_MAP: ITAB_MAP = {
       "React Native Chart Kit",
     ],
     description:
-      "This application is a application created track weightlifting progress for active gym goers. Created using React Native, The application is fully compatible on web and is native to iOS and Andriod. This application is currently still in development, and is being worked on in my spare time. To see what I am working on or report any bugs, please open an issue on github!",
+      "This application is a application created track weightlifting progress for active gym goers. Created using React Native, The application is fully compatible on web and is native to iOS and Andriod. This application is currently still in development, and is being worked on in my spare time. As a result, it's not been deployed yet, however, the View button will re-direct to a YouTube preview of the app running on a simulator. To see what I am working on or report any bugs, please open an issue on github!",
     github: "https://github.com/McGarry-A/Jacked",
-    liveLink: "https://pos-vert.vercel.app/",
+    liveLink: "https://www.youtube.com/watch?v=AkB67te2lsw",
     Image: JACKED,
     responsive: true,
   },
@@ -55,8 +56,9 @@ const TAB_MAP: ITAB_MAP = {
       "JWT",
     ],
     description:
-      "This is a job board aggregation platform created using React, Redux, Tailwind, and Typescript. The backend is created using Node, Express, and SQL Lite.",
+      "This is a job board aggregation platform created using React, Redux, Tailwind, and Typescript. The backend is created using Node, Express, and SQL Lite. The data powering the project is consumed from the Reed job API. Feel free to login using the credentials provided and play with the drag and drop features built with React Beautiful DND!",
     github: "https://github.com/McGarry-A/job-hack-2-frontend",
+    backend: "https://github.com/McGarry-A/job-hack-2-be",
     liveLink: "https://job-hack-2-frontend.vercel.app/",
     Image: JOBHACK2,
     responsive: true,

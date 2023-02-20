@@ -232,18 +232,17 @@ const Hero = ({ navIsOpen }: IHero) => {
         <br />
         <p className="text-gray-400 w-full text-xl max-w-4xl">
           Currently, I am working on a React Native application for active gym
-          members! Although that application is still in progress, you can see
-          that application{" "}
+          members! Although that application is still in progress, you can see a{" "}
           <a
             target={"_blank"}
             rel={"noreferrer"}
-            href={"www.google.com"}
+            href={"https://www.youtube.com/watch?v=AkB67te2lsw"}
             className="text-violet-500 underline hover:text-violet-400"
           >
-            here
-          </a>
-          . Feel free to report any bugs via github issues or E-mail me with any
-          suggestions!
+            YouTube walkthrough
+          </a>{" "}
+          of that application . Feel free to report any bugs via github issues
+          or E-mail me with any suggestions!
         </p>
       </motion.div>
       {renderButtons()}

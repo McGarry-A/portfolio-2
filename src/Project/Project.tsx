@@ -5,6 +5,7 @@ interface IProject {
   liveLink: string;
   github: string;
   Image: string;
+  backend?: string;
 }
 
 const Project = (props: IProject) => {
@@ -47,12 +48,12 @@ const Project = (props: IProject) => {
   };
 
   const renderButtons = () => {
-    const { liveLink, github } = props;
+    const { liveLink, github, backend } = props;
     return (
       <div className="flex space-x-3">
         <a href={liveLink} target={"_blank"} rel={"noreferrer"}>
           <button className="px-9 py-2 text-xl bg-violet-700 border border-violet-700 hover:bg-transparent transition duration-150">
-            Live Instance
+            View
           </button>
         </a>
         <a
@@ -62,6 +63,15 @@ const Project = (props: IProject) => {
         >
           <button>Github</button>
         </a>
+        {backend && (
+          <a
+            href={backend}
+            rel={"noreferrer"}
+            className="px-6 py-2 text-xl border space-x-2 inline-flex items-center hover:text-violet-500 border-violet-700"
+          >
+            <button>Backend</button>
+          </a>
+        )}
       </div>
     );
   };
