@@ -232,7 +232,19 @@ const Hero = ({ navIsOpen }: IHero) => {
         <br />
         <p className="text-gray-400 w-full text-xl max-w-4xl">
           Currently, I am working on a React Native application for active gym
-          members! Although that application is still in progress, you can see a{" "}
+          members! Although that application is still in progress, you can see
+          the{" "}
+          <a
+            target={"_blank"}
+            rel={"noreferrer"}
+            href={
+              "https://www.figma.com/file/MWLRapHCfCFty5ohnxUKDI/Jacked?node-id=0%3A1&t=RiowwZwE6tfuiLkk-0"
+            }
+            className="text-violet-500 underline hover:text-violet-400"
+          >
+            Figma Mock-up
+          </a>{" "}
+          and a{" "}
           <a
             target={"_blank"}
             rel={"noreferrer"}
